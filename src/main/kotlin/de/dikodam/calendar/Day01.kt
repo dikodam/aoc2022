@@ -12,15 +12,17 @@ fun main() {
 
 class Day01 : AbstractDay() {
 
-    private val input = readInputLines()
-    private val caloriesPerElf = input.divideAt("")
+    private val input: List<String> = readInputLines()
+    private val caloriesPerElf: List<Int> = input
+        .divideAt("")
         .map { list -> list.sumOf { it.toInt() } }
+        .sortedDescending()
 
     override fun task1(): String {
-        return caloriesPerElf.max().toString()
+        return caloriesPerElf[0].toString()
     }
 
     override fun task2(): String {
-        return caloriesPerElf.sortedDescending().take(3).sum().toString()
+        return caloriesPerElf.take(3).sum().toString()
     }
 }

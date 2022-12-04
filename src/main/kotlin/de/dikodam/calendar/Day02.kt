@@ -12,10 +12,10 @@ fun main() {
 }
 
 class Day02 : AbstractDay() {
-    val input = readInputLines()
+    val inputLines = readInputLines()
 
     override fun task1(): String {
-        return input
+        return inputLines
             .map { parseLineToEncounter(it) }
             .map(Encounter::score)
             .sum()
@@ -23,7 +23,7 @@ class Day02 : AbstractDay() {
     }
 
     override fun task2(): String {
-        return input
+        return inputLines
             .map { parseLineToActualStrategy(it) }
             .map(ActualStrategy::score)
             .sum()

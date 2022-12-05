@@ -48,6 +48,9 @@ fun <T> List<T>.divideAt(splitter: T): List<List<T>> {
     return accumulator
 }
 
+fun IntRange.containsRange(other: IntRange): Boolean =
+    this.first <= other.first && this.last >= other.last
+
 
 fun main() {
     val input = """1000

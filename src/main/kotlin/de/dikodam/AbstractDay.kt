@@ -37,4 +37,13 @@ abstract class AbstractDay {
         return readInputLines()
             .map { it.toInt() }
     }
+
+    fun <R> parseInputAs2dGrid(transform: (Char, Coordinates2D) -> R?): Set<R> {
+        return readInputLines()
+            .flatMapIndexed { y, line ->
+                line.mapIndexed { x, char -> transform(char, Coordinates2D(x, y)) }
+            }
+            .filterNotNull()
+            .toSet()
+    }
 }
